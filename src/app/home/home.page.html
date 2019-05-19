@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Get Started</ion-card-subtitle>
+        <ion-card-title>Bem vido ao App de Delivery</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Escolha seu restaurante de sua preferência. Você pesquisar seu restaurante na barra de pesquisa</p>
+      </ion-card-content>
+    </ion-card>
+    <br /><br />
+    <ion-card *ngFor='let restaurant of restaurants' (click)="seleciona(restaurant)"  class="welcome-card">
+      <ion-img src="{{ restaurant.img_url }}"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>{{ restaurant.cellphone }}</ion-card-subtitle>
+        <ion-card-title>{{ restaurant.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Endereço: {{restaurant.address}} - Whatsupp{{ restaurant.whatsup }} - {{ restaurant.type}}</p>
+      </ion-card-content>
+    </ion-card>
+   
+
+
+<!--
+
+
+    <ion-card *ngFor='let restaurant of restaurants' (click)="seleciona(restaurant)" id="restaurantes-card21">
+      <ion-list>
+        <ion-item color="none" id="restaurantes-list-item7">
+        </ion-item>
+  
+        <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+          <img src="{{ restaurant.img_url }} " />
+        </div>
+        
+        <ion-item id="restaurantes-list-item-container2">
+          <div id="restaurantes-markdown2" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">
+              <strong>
+                {{ restaurant.cellphone }}
+              </strong>
+            </p>
+          </div>
+        </ion-item>
+        <ion-item color="assertive" id="restaurantes-list-item8">
+          <ion-icon name="restaurant" item-left></ion-icon>
+          {{ restaurant.name }}
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    -->
+</ion-content>
