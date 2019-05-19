@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2014 PayPal. All rights reserved. -->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.paypal.cordova.mobilesdk"
+    version="3.5.0">
+    <name>PayPalMobile</name>
+    <description>This plugin allows to add to add PayPal Payments to your application using PayPal Mobile SDK Native library</description>
+    <keywords>paypal, sdk, payments</keywords>
+    <license>BSD License, see LICENSE.md for details</license>
+    <engines>
+            <engine name="cordova" version="&gt;=3.0.0" />
+    </engines>
+
+    <js-module src="www/cdv-plugin-paypal-mobile-sdk.js" name="PayPalMobile">
+        <clobbers target="PayPalMobile" />
+    </js-module>
+
+    <!-- adding card.io cordova plugin dependency -->
+    <dependency id="card.io.cordova.mobilesdk" version="2.1.0" />
+
+    <asset src="www/paypal-mobile-js-helper.js" target="js/paypal-mobile-js-helper.js" />
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PayPalMobile">
+                <param name="ios-package" value="PayPalMobileCordovaPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/PayPalMobileCordovaPlugin.h" />
+        <source-file src="src/ios/PayPalMobileCordovaPlugin.m" />
+
+        <header-file src="src/ios/PayPalMobile/PayPalConfiguration.h" />
+        <header-file src="src/ios/PayPalMobile/PayPalFuturePaymentViewController.h" />
+        <header-file src="src/ios/PayPalMobile/PayPalMobile.h" />
+        <header-file src="src/ios/PayPalMobile/PayPalOAuthScopes.h" />
+        <header-file src="src/ios/PayPalMobile/PayPalPayment.h" />
+        <header-file src="src/ios/PayPalMobile/PayPalPaymentViewController.h" />
+        <header-file src="src/ios/PayPalMobile/PayPalProfileSharingViewController.h" />
+
+        <source-file src="src/ios/PayPalMobile/libPayPalMobile.a" framework="true" />
+
+        <framework src="Accelerate.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CoreLocation.framework" weak="true" />
+        <framework src="CoreMedia.framework" weak="true" />
+        <framework src="CoreVideo.framework"/>
+        <framework src="MessageUI.framework" />
+        <framework src="OpenGLES.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="Security.framework" />
+        <framework src="SafariServices.framework"/>
+        <framework src="SystemConfiguration.framework" />
+        <framework src="QuartzCore.framework"/>
+        <framework src="UIKit.framework"/>
+
+
+        <framework src="libc++.dylib" />
+        <framework src="libPayPalMobile.a" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PayPalMobile">
+                <param name="android-package" value="com.paypal.cordova.sdk.PayPalMobileCordovaPlugin" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/PayPalMobileCordovaPlugin.java" target-dir="src/com/paypal/cordova/sdk" />
+	      <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+
+    </platform>
+
+</plugin>

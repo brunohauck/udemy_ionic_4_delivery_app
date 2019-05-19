@@ -1,0 +1,9 @@
+repositories{
+  mavenCentral()
+}
+
+dependencies {
+   compile('com.paypal.sdk:paypal-android-sdk:2.15.3') {
+      exclude group: 'io.card'
+   }
+}

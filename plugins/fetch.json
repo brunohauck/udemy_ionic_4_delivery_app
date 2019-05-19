@@ -1,0 +1,10 @@
+{
+  "com.paypal.cordova.mobilesdk": {
+    "source": {
+      "type": "registry",
+      "id": "com.paypal.cordova.mobilesdk"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
